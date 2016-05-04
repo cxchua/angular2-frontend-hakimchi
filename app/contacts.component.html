@@ -1,0 +1,14 @@
+<h2>My Contacts</h2>
+<ul class="contacts">
+  <li *ngFor="#contact of contacts"
+    [class.selected]="contact === selectedContact"
+    (click)="onSelect(contact)">
+    <span class="badge">{{contact.id}}</span> {{contact.name}}
+  </li>
+</ul>
+<div *ngIf="selectedContact">
+  <h2>
+    {{selectedContact.name | uppercase}} is my contact
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

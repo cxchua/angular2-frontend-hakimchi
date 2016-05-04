@@ -4,6 +4,7 @@ import {HeroService} from './hero.service';
 import {OnInit} from 'angular2/core';
 import {HeroDetailComponent} from './hero-detail.component';
 import { Router } from 'angular2/router';
+
 @Component({
   selector: 'my-heroes',
   templateUrl: 'app/heroes.component.html',
