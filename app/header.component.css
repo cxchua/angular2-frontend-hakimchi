@@ -1,0 +1,19 @@
+nav {
+  position: absolute;
+}
+
+a, p {
+  display: inline;
+  font-family: 'Lato';
+}
+
+.logo {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+}
+
+.login, .signup {
+  position: relative;
+  left: 400%;
+}
