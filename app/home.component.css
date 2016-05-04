@@ -10,6 +10,7 @@ p {
 }
 
 #background-image {
+  position: relative;
   height: 85vh;
   width: 100%;
   /*background-image: url('/images/selfie-friends.jpg');*/

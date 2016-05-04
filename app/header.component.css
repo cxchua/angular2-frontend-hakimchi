@@ -1,5 +1,7 @@
 nav {
   height: 8vh;
+  width: 100%;
+  position: relative;
 }
 
 a, p {
@@ -19,11 +21,12 @@ a, p {
 .login, .signup {
   font-size: 1.2em;
   position: relative;
-  left: 75%;
+  left: 78%;
   top: 18%;
 }
 .signup {
-  left: 78%;
+  position: relative;
+  left: 80%;
 }
 
 
