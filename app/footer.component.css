@@ -1,0 +1,15 @@
+div {
+  position: fixed;
+    height: 5vh;
+    width: 100%;
+    /*background: #191970;*/
+    /*background: #2F4F4F;*/
+    background: white;
+}
+h1 {
+  position: relative;
+  font-size: 1.2em;
+  color: #778899;
+  margin-top: 1%;
+  left: 1%;
+}

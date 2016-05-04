@@ -1,4 +1,4 @@
-System.register(['angular2/core', './hero.service', './heroes.component', './dashboard.component', './hero-detail.component', './header.component', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', './hero.service', './heroes.component', './dashboard.component', './hero-detail.component', './header.component', './footer.component', './home.component', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './hero.service', './heroes.component', './das
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_service_1, heroes_component_1, dashboard_component_1, hero_detail_component_1, header_component_1, router_1;
+    var core_1, hero_service_1, heroes_component_1, dashboard_component_1, hero_detail_component_1, header_component_1, footer_component_1, home_component_1, router_1;
     var AppComponent;
     return {
         setters:[
@@ -32,26 +32,38 @@ System.register(['angular2/core', './hero.service', './heroes.component', './das
             function (header_component_1_1) {
                 header_component_1 = header_component_1_1;
             },
+            function (footer_component_1_1) {
+                footer_component_1 = footer_component_1_1;
+            },
+            function (home_component_1_1) {
+                home_component_1 = home_component_1_1;
+            },
             function (router_1_1) {
                 router_1 = router_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = "Tour of Heroes";
+                    this.title = "Contact Now. Stay Connected.";
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
                         styleUrls: ['app/app.component.css'],
-                        template: "\n  <header></header>\n  <nav>\n    <h1>{{title}}</h1>\n    <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n    <a [routerLink]=\"['Heroes']\">Heroes</a>\n  </nav>\n    <router-outlet></router-outlet>\n  ",
-                        directives: [header_component_1.HeaderComponent, heroes_component_1.HeroesComponent, router_1.ROUTER_DIRECTIVES],
+                        template: "\n  <header></header>\n  <router-outlet></router-outlet>\n  <footer></footer>\n  ",
+                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, heroes_component_1.HeroesComponent, router_1.ROUTER_DIRECTIVES],
                         providers: [hero_service_1.HeroService, router_1.ROUTER_PROVIDERS]
                     }),
                     router_1.RouteConfig([
                         { path: '/dashboard',
                             name: 'Dashboard',
                             component: dashboard_component_1.DashboardComponent //,
+                        },
+                        {
+                            path: '/home',
+                            name: 'Home',
+                            component: home_component_1.HomeComponent,
+                            useAsDefault: true
                         },
                         {
                             path: '/heroes',

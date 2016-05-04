@@ -1,19 +1,32 @@
 nav {
-  position: absolute;
+  height: 8vh;
 }
 
 a, p {
   display: inline;
   font-family: 'Lato';
+  color: #778899;
 }
 
 .logo {
   font-size: 1.5em;
   text-decoration: none;
-  color: black;
+  position: relative;
+  top: 18%;
+  left: 1%;
 }
 
 .login, .signup {
+  font-size: 1.2em;
   position: relative;
-  left: 400%;
+  left: 75%;
+  top: 18%;
 }
+.signup {
+  left: 78%;
+}
+
+
+position: relative;
+margin-top: 1vh;
+left: 1%;
