@@ -2,7 +2,6 @@ import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { ContactDate } from './contactdate';
 import { Event } from './event';
-import { Userid } from './userid';
 import { DashboardService } from './dashboard.service';
 
 @Component({
