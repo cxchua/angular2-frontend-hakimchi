@@ -1,5 +1,10 @@
-<div *ngIf="contact">
-  <h2>{{contact.name}} details!</h2>
+<div class="container" *ngIf="contact">
+  <div class="profile-left">
+    <img class="profilepic" src="{{contact.photo}}" />
+    <h2>{{contact.name}}</h2>
+  </div>
+
+
   <div><label>id: </label>{{contact.id}}</div>
   <div>
     <label>name: </label>

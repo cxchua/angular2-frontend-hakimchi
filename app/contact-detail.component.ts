@@ -9,18 +9,18 @@ import { Contact } from './contact';
   styleUrls: ['app/contact-detail.component.css']
 })
 
-export class ContactDetailComponent implements OnInit {
+export class ContactDetailComponent {// implements OnInit {
   @Input() contact: Contact;
 
-  constructor(
-    private _contactService: ContactService,
-    private _routeParams: RouteParams) {}
+  // constructor(
+  //   private _contactService: ContactService,
+  //   private _routeParams: RouteParams) {}
 
-  ngOnInit() {
-    let id = +this._routeParams.get('id');
-    this._contactService.getContact(id)
-      .then(contact => this.contact = contact);
-  }
+  // ngOnInit() {
+  //   let id = +this._routeParams.get('id');
+  //   this._contactService.getContact(id)
+  //     .then(contact => this.contact = contact);
+  // }
 
   goBack() {
     window.history.back();

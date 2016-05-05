@@ -1,18 +1,13 @@
 import { Component } from 'angular2/core';
+import { Http, Response, HTTP_PROVIDERS } from 'angular2/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 import { HomeComponent } from './home.component';
-import { HeroService } from './hero.service';
 import { ContactService } from './contact.service';
-import { HeroesComponent } from './heroes.component';
 import { ContactsComponent } from './contacts.component';
-import { DashboardComponent } from './dashboard.component';
-import { ContactboardComponent } from './contactboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { ContactDetailComponent } from './contact-detail.component';
-
-
+// import { ContactboardComponent } from './contactboard.component';
+// import { ContactDetailComponent } from './contact-detail.component';
 
 @Component({
   selector: 'my-app',
@@ -22,8 +17,8 @@ import { ContactDetailComponent } from './contact-detail.component';
   <router-outlet></router-outlet>
   <footer></footer>
   `,
-  directives: [HeaderComponent, FooterComponent, HeroesComponent, ROUTER_DIRECTIVES],
-  providers: [HeroService, ContactService, ROUTER_PROVIDERS]
+  directives: [HeaderComponent, FooterComponent, ROUTER_DIRECTIVES],
+  providers: [ContactService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
 @RouteConfig([
   {
@@ -32,28 +27,19 @@ import { ContactDetailComponent } from './contact-detail.component';
     component: HomeComponent,
     useAsDefault: true
   },
-  {  path: '/dashboard',
-  name: 'Dashboard',
-  component: DashboardComponent
-  },
-  {  path: '/contactboard',
-  name: 'Contactboard',
-  component: ContactboardComponent
-  },
-  {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent
-  },
+  // {  path: '/contactboard',
+  // name: 'Contactboard',
+  // component: ContactboardComponent
+  // },
   {  path: '/contacts',
   name: 'Contacts',
   component: ContactsComponent
   },
-  {
-  path: '/detail/:id',
-  name: 'HeroDetail',
-  component: HeroDetailComponent
-},
+  // {
+  // path: '/detail/:id',
+  // name: 'ContactDetail',
+  // component: ContactDetailComponent
+  // },
 ])
 export class AppComponent {
   title = "Contact Now. Stay Connected."

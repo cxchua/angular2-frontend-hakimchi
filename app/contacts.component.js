@@ -33,9 +33,13 @@ System.register(['angular2/core', './contact.service', './contact-detail.compone
                     this._router = _router;
                     this.title = 'My Contacts';
                 }
+                // getContacts() {
+                //   this._contactService.getContacts().then(contacts => this.contacts = contacts);
+                // }
                 ContactsComponent.prototype.getContacts = function () {
                     var _this = this;
-                    this._contactService.getContacts().then(function (contacts) { return _this.contacts = contacts; });
+                    this._contactService.getContacts()
+                        .subscribe(function (contacts) { return _this.contacts = contacts; }, function (error) { return _this.errorMessage = error; });
                 };
                 ContactsComponent.prototype.ngOnInit = function () {
                     this.getContacts();

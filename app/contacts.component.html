@@ -1,14 +1,25 @@
-<h2>My Contacts</h2>
-<ul class="contacts">
-  <li *ngFor="#contact of contacts"
-    [class.selected]="contact === selectedContact"
-    (click)="onSelect(contact)">
-    <span class="badge">{{contact.id}}</span> {{contact.name}}
-  </li>
-</ul>
-<div *ngIf="selectedContact">
+<h2>Contacts</h2>
+<div id="scroll">
+  <ul class="contacts">
+    <li *ngFor="#contact of contacts"
+      [class.selected]="contact === selectedContact"
+      (click)="onSelect(contact)">
+      <div class="contact-name">
+        <span class="badge">{{contact.contactname}}</span>
+      </div>
+      <div class="contact-info">
+        <div>Email: {{contact.contactEmail}}</div>
+        <br />
+        <div>Number: {{contact.contactPhone}}</div>
+        <br />
+        <div>Additional Info:</div>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- <div *ngIf="selectedContact">
   <h2>
     {{selectedContact.name | uppercase}} is my contact
   </h2>
   <button (click)="gotoDetail()">View Details</button>
-</div>
+</div> -->

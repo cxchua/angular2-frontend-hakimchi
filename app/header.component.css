@@ -18,15 +18,27 @@ a, p {
   left: 1%;
 }
 
-.login, .signup {
+.contactboard, .contacts, .login, .signup {
   font-size: 1.2em;
+  text-decoration: none;
   position: relative;
-  left: 78%;
   top: 18%;
 }
+
+.contactboard {
+  left: 5%;
+}
+
+.contacts {
+  left: 7%;
+}
+
+.login, .signup {
+  left: 64%;
+}
+
 .signup {
-  position: relative;
-  left: 80%;
+  left: 66%;
 }
 
 

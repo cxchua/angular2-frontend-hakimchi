@@ -1,8 +1,9 @@
 export class Contact {
-  id: number;
+  id: string; //number;
   name: string;
   email: string;
-  number: number;
+  number: string; //number;
   birthday: string;
+  photo: string;
   // birthday: {} | date['shortDate'];
 }

@@ -1,0 +1,19 @@
+.container {
+  height: 85vh;
+  width: 100%;
+  background: #0288d1;
+}
+
+.profile-left {
+  
+}
+
+h2 {
+  margin: 0;
+}
+
+.profilepic {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+}

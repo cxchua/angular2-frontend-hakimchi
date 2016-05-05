@@ -1,4 +1,4 @@
-System.register(['./mock-contacts', 'angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,41 +10,50 @@ System.register(['./mock-contacts', 'angular2/core'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var mock_contacts_1, core_1;
+    var core_1, http_1, Observable_1;
     var ContactService;
     return {
         setters:[
-            function (mock_contacts_1_1) {
-                mock_contacts_1 = mock_contacts_1_1;
-            },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
             }],
         execute: function() {
             ContactService = (function () {
-                function ContactService() {
+                function ContactService(http) {
+                    this.http = http;
+                    this.contactsUrl = "http://localhost:3000/api/contacts/572ad82867d5d7bc432a003b";
                 }
                 ContactService.prototype.getContacts = function () {
-                    return Promise.resolve(mock_contacts_1.CONTACTS);
+                    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
                 };
-                ContactService.prototype.getContact = function (id) {
-                    return Promise.resolve(mock_contacts_1.CONTACTS).then(function (contacts) { return contacts.filter(function (contact) { return contact.id === id; })[0]; });
+                ContactService.prototype.extractData = function (res) {
+                    if (res.status < 200 || res.status >= 300) {
+                        throw new Error('Bad response status: ' + res.status);
+                    }
+                    var body = res.json();
+                    //  console.log("Body is: " + body[0].contactname);
+                    return body || {};
                 };
-                // See the "Take it slow" appendix
-                ContactService.prototype.getContactsSlowly = function () {
-                    return new Promise(function (resolve) {
-                        return setTimeout(function () { return resolve(mock_contacts_1.CONTACTS); }, 2000);
-                    } // 2 seconds
-                     // 2 seconds
-                    );
+                ContactService.prototype.handleError = function (error) {
+                    // In a real world app, we might send the error to remote logging infrastructure
+                    var errMsg = error.message || 'Server error';
+                    console.error(errMsg); // log to console instead
+                    return Observable_1.Observable.throw(errMsg);
                 };
                 ContactService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], ContactService);
                 return ContactService;
             }());
             exports_1("ContactService", ContactService);
+            ;
         }
     }
 });

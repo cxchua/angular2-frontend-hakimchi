@@ -14,9 +14,17 @@ export class ContactsComponent implements OnInit {
   title = 'My Contacts';
   contacts: Contact[];
   selectedContact: Contact;
+  errorMessage: string;
+
+  // getContacts() {
+  //   this._contactService.getContacts().then(contacts => this.contacts = contacts);
+  // }
 
   getContacts() {
-    this._contactService.getContacts().then(contacts => this.contacts = contacts);
+    this._contactService.getContacts()
+                        .subscribe(
+                            contacts => this.contacts = contacts,
+                            error => this.errorMessage = <any>error);
   }
 
   ngOnInit() {

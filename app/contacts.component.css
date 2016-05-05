@@ -1,13 +1,32 @@
-.selected {
-  background-color: #CFD8DC !important;
+/*Blue band at the top. DONT TOUCH*/
+h2 {
+  background-color: #0288d1;
+  font-size: 1.5em;
+  font-weight: 300;
   color: white;
+  height: 6vh;
+  padding: 2.5vh 0 0 1vw;
+  margin: 0;
 }
+
+#scroll {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 545px;
+  width: 1440px;
+}
+
 .contacts {
-  margin: 0 0 2em 0;
-  list-style-type: none;
+  margin: 0 0 0 1%;
   padding: 0;
-  width: 15em;
+  width: 1400px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
 }
+
 .contacts li {
   cursor: pointer;
   position: relative;
@@ -15,7 +34,8 @@
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
-  height: 1.6em;
+  height: 10.0em;
+  width: 20em;
   border-radius: 4px;
 }
 .contacts li.selected:hover {
@@ -27,13 +47,20 @@
   background-color: #DDD;
   left: .1em;
 }
-.contacts .text {
-  position: relative;
-  top: -3px;
+
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
 }
+
+.contact-name {
+  height: 30%;
+  width: 100%;
+}
+
 .contacts .badge {
   display: inline-block;
-  font-size: small;
+  font-size: 0.9em;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
   background-color: #607D8B;
@@ -42,6 +69,24 @@
   left: -1px;
   top: -4px;
   height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+  /*margin-right: .8em;*/
+  border-radius: 4px;
+}
+
+.badge {
+  text-align: center;
+  margin-right: 0;
+  padding: 0;
+  width: 94%;
+  /*border-radius: 4px 4px 4px 4px;*/
+}
+
+.contacts .text {
+  position: relative;
+  top: -3px;
+}
+
+.contact-info {
+  font-size: 0.9em;
+  margin-left: 5%;
 }

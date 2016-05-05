@@ -13,8 +13,8 @@ export class ContactboardComponent implements OnInit {
   constructor(private _contactService: ContactService, private _router: Router) { }
 
   ngOnInit() {
-    this._contactService.getContacts()
-      .then(contacts => this.contacts = contacts.slice(1,5));
+    // this._contactService.getContacts()
+    //   .then(contacts => this.contacts = contacts.slice(1,5));
   }
   gotoDetail(contact: Contact) {
     let link = ['ContactDetail', { id: contact.id }];
