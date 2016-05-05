@@ -1,4 +1,4 @@
-System.register(['angular2/core', './contact'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './contact.service', './contact'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,34 @@ System.register(['angular2/core', './contact'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contact_1;
+    var core_1, router_1, contact_service_1, contact_1;
     var ContactDetailComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (contact_service_1_1) {
+                contact_service_1 = contact_service_1_1;
+            },
             function (contact_1_1) {
                 contact_1 = contact_1_1;
             }],
         execute: function() {
             ContactDetailComponent = (function () {
-                function ContactDetailComponent() {
+                function ContactDetailComponent(_contactService, _routeParams) {
+                    this._contactService = _contactService;
+                    this._routeParams = _routeParams;
                 }
-                // constructor(
-                //   private _contactService: ContactService,
-                //   private _routeParams: RouteParams) {}
-                // ngOnInit() {
-                //   let id = +this._routeParams.get('id');
-                //   this._contactService.getContact(id)
-                //     .then(contact => this.contact = contact);
-                // }
+                ContactDetailComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    var id = +this._routeParams.get('id');
+                    this._contactService.getContact(id)
+                        .then(function (contact) { return _this.contact = contact; });
+                };
                 ContactDetailComponent.prototype.goBack = function () {
                     window.history.back();
                 };
@@ -46,7 +52,7 @@ System.register(['angular2/core', './contact'], function(exports_1, context_1) {
                         templateUrl: 'app/contact-detail.component.html',
                         styleUrls: ['app/contact-detail.component.css']
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [contact_service_1.ContactService, router_1.RouteParams])
                 ], ContactDetailComponent);
                 return ContactDetailComponent;
             }());

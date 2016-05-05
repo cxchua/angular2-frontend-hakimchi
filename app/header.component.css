@@ -18,14 +18,14 @@ a, p {
   left: 1%;
 }
 
-.contactboard, .contacts, .login, .signup {
+.dashboard, .contacts, .login, .signup {
   font-size: 1.2em;
   text-decoration: none;
   position: relative;
   top: 18%;
 }
 
-.contactboard {
+.dashboard {
   left: 5%;
 }
 
@@ -40,8 +40,3 @@ a, p {
 .signup {
   left: 66%;
 }
-
-
-position: relative;
-margin-top: 1vh;
-left: 1%;

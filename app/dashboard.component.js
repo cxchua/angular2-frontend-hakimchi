@@ -31,8 +31,9 @@ System.register(['angular2/core', 'angular2/router', './contact.service'], funct
                     this.contacts = [];
                 }
                 ContactboardComponent.prototype.ngOnInit = function () {
-                    // this._contactService.getContacts()
-                    //   .then(contacts => this.contacts = contacts.slice(1,5));
+                    var _this = this;
+                    this._contactService.getContacts()
+                        .subscribe(function (contacts) { return _this.contacts = contacts.slice(1, 5); }, function (error) { return _this.errorMessage = error; });
                 };
                 ContactboardComponent.prototype.gotoDetail = function (contact) {
                     var link = ['ContactDetail', { id: contact.id }];
@@ -52,4 +53,4 @@ System.register(['angular2/core', 'angular2/router', './contact.service'], funct
         }
     }
 });
-//# sourceMappingURL=contactboard.component.js.map
+//# sourceMappingURL=dashboard.component.js.map

@@ -6,8 +6,8 @@ import { FooterComponent } from './footer.component';
 import { HomeComponent } from './home.component';
 import { ContactService } from './contact.service';
 import { ContactsComponent } from './contacts.component';
-// import { ContactboardComponent } from './contactboard.component';
-// import { ContactDetailComponent } from './contact-detail.component';
+import { DashboardComponent } from './dashboard.component';
+import { ContactDetailComponent } from './contact-detail.component';
 
 @Component({
   selector: 'my-app',
@@ -27,19 +27,19 @@ import { ContactsComponent } from './contacts.component';
     component: HomeComponent,
     useAsDefault: true
   },
-  // {  path: '/contactboard',
-  // name: 'Contactboard',
-  // component: ContactboardComponent
-  // },
+  {  path: '/dashboard',
+  name: 'Dashboard',
+  component: DashboardComponent
+  },
   {  path: '/contacts',
   name: 'Contacts',
   component: ContactsComponent
   },
-  // {
-  // path: '/detail/:id',
-  // name: 'ContactDetail',
-  // component: ContactDetailComponent
-  // },
+  {
+  path: '/detail/:id',
+  name: 'ContactDetail',
+  component: ContactDetailComponent
+  },
 ])
 export class AppComponent {
   title = "Contact Now. Stay Connected."

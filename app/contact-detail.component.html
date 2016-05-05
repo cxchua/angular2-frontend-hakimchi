@@ -1,14 +1,14 @@
 <div class="container" *ngIf="contact">
   <div class="profile-left">
     <img class="profilepic" src="{{contact.photo}}" />
-    <h2>{{contact.name}}</h2>
+    <h2>{{contact.contactname}}</h2>
   </div>
 
 
-  <div><label>id: </label>{{contact.id}}</div>
+  <div><label>id: </label>{{contact._id}}</div>
   <div>
     <label>name: </label>
-    <input [(ngModel)]="contact.name" placeholder="name"/>
+    <input [(ngModel)]="contact.contactname" placeholder="name"/>
   </div>
   <button (click)="goBack()">Back</button>
 </div>
