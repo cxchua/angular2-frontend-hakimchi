@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, Observable_1;
-    var ContactService;
+    var DashboardService;
     return {
         setters:[
             function (core_1_1) {
@@ -24,37 +24,37 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 Observable_1 = Observable_1_1;
             }],
         execute: function() {
-            ContactService = (function () {
-                function ContactService(http) {
+            DashboardService = (function () {
+                function DashboardService(http) {
                     this.http = http;
-                    this.contactsUrl = "http://localhost:3000/api/contacts/572b51b752f11f984fddeb47";
+                    this.eventsUrl = "http://localhost:3000/api/events/572b51b752f11f984fddeb47";
                 }
-                ContactService.prototype.getContacts = function () {
-                    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+                DashboardService.prototype.getEvents = function () {
+                    return this.http.get(this.eventsUrl).map(this.extractData).catch(this.handleError);
                 };
-                ContactService.prototype.extractData = function (res) {
+                DashboardService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {
                         throw new Error('Bad response status: ' + res.status);
                     }
                     var body = res.json();
-                    //  console.log("Body is: " + body[0].contactname);
+                    //  console.log("Body is: " + body[0]);
                     return body || {};
                 };
-                ContactService.prototype.handleError = function (error) {
+                DashboardService.prototype.handleError = function (error) {
                     // In a real world app, we might send the error to remote logging infrastructure
                     var errMsg = error.message || 'Server error';
                     console.error(errMsg); // log to console instead
                     return Observable_1.Observable.throw(errMsg);
                 };
-                ContactService = __decorate([
+                DashboardService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], ContactService);
-                return ContactService;
+                ], DashboardService);
+                return DashboardService;
             }());
-            exports_1("ContactService", ContactService);
+            exports_1("DashboardService", DashboardService);
             ;
         }
     }
 });
-//# sourceMappingURL=contact.service.js.map
+//# sourceMappingURL=dashboard.service.js.map

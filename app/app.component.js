@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.component', './footer.component', './home.component', './contact.service', './contacts.component', './dashboard.component', './contact-detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.component', './footer.component', './home.component', './contact.service', './dashboard.service', './contacts.component', './dashboard.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, header_component_1, footer_component_1, home_component_1, contact_service_1, contacts_component_1, dashboard_component_1, contact_detail_component_1;
+    var core_1, http_1, router_1, header_component_1, footer_component_1, home_component_1, contact_service_1, dashboard_service_1, contacts_component_1, dashboard_component_1;
     var AppComponent;
     return {
         setters:[
@@ -35,16 +35,17 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.
             function (contact_service_1_1) {
                 contact_service_1 = contact_service_1_1;
             },
+            function (dashboard_service_1_1) {
+                dashboard_service_1 = dashboard_service_1_1;
+            },
             function (contacts_component_1_1) {
                 contacts_component_1 = contacts_component_1_1;
             },
             function (dashboard_component_1_1) {
                 dashboard_component_1 = dashboard_component_1_1;
-            },
-            function (contact_detail_component_1_1) {
-                contact_detail_component_1 = contact_detail_component_1_1;
             }],
         execute: function() {
+            // import { ContactDetailComponent } from './contact-detail.component';
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = "Contact Now. Stay Connected.";
@@ -55,7 +56,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.
                         styleUrls: ['app/app.component.css'],
                         template: "\n  <header></header>\n  <router-outlet></router-outlet>\n  <footer></footer>\n  ",
                         directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, router_1.ROUTER_DIRECTIVES],
-                        providers: [contact_service_1.ContactService, http_1.HTTP_PROVIDERS, router_1.ROUTER_PROVIDERS]
+                        providers: [contact_service_1.ContactService, dashboard_service_1.DashboardService, http_1.HTTP_PROVIDERS, router_1.ROUTER_PROVIDERS]
                     }),
                     router_1.RouteConfig([
                         {
@@ -71,11 +72,6 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.
                         { path: '/contacts',
                             name: 'Contacts',
                             component: contacts_component_1.ContactsComponent
-                        },
-                        {
-                            path: '/detail/:id',
-                            name: 'ContactDetail',
-                            component: contact_detail_component_1.ContactDetailComponent
                         },
                     ]), 
                     __metadata('design:paramtypes', [])

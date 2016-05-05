@@ -2,16 +2,16 @@ import { Injectable } from 'angular2/core';
 import { Http, Response } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
 
-import { Contact } from './contact';
+import { Event } from './event';
 
 @Injectable()
-export class ContactService {
+export class DashboardService {
   constructor (private http: Http) {}
 
-  private contactsUrl = "http://localhost:3000/api/contacts/572b51b752f11f984fddeb47"
+  private eventsUrl = "http://localhost:3000/api/events/572b51b752f11f984fddeb47"
 
-  getContacts (): Observable<Contact[]> {
-    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+  getEvents (): Observable<Event[]> {
+    return this.http.get(this.eventsUrl).map(this.extractData).catch(this.handleError);
   }
 
   private extractData(res: Response) {
@@ -19,7 +19,7 @@ export class ContactService {
      throw new Error('Bad response status: ' + res.status);
    }
    let body = res.json();
-  //  console.log("Body is: " + body[0].contactname);
+  //  console.log("Body is: " + body[0]);
    return body || { };
  }
 

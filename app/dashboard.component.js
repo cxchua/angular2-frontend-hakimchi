@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './contact.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './contact.service', './dashboard.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', 'angular2/router', './contact.service'], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, contact_service_1;
-    var ContactboardComponent;
+    var core_1, router_1, contact_service_1, dashboard_service_1;
+    var DashboardComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -22,34 +22,41 @@ System.register(['angular2/core', 'angular2/router', './contact.service'], funct
             },
             function (contact_service_1_1) {
                 contact_service_1 = contact_service_1_1;
+            },
+            function (dashboard_service_1_1) {
+                dashboard_service_1 = dashboard_service_1_1;
             }],
         execute: function() {
-            ContactboardComponent = (function () {
-                function ContactboardComponent(_contactService, _router) {
+            DashboardComponent = (function () {
+                function DashboardComponent(_dashboardService, _contactService, _router) {
+                    this._dashboardService = _dashboardService;
                     this._contactService = _contactService;
                     this._router = _router;
+                    this.events = [];
                     this.contacts = [];
                 }
-                ContactboardComponent.prototype.ngOnInit = function () {
+                DashboardComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._contactService.getContacts()
                         .subscribe(function (contacts) { return _this.contacts = contacts.slice(1, 5); }, function (error) { return _this.errorMessage = error; });
+                    this._dashboardService.getEvents()
+                        .subscribe(function (events) { return _this.events = events; }, function (error) { return _this.errorMessage = error; });
                 };
-                ContactboardComponent.prototype.gotoDetail = function (contact) {
+                DashboardComponent.prototype.gotoDetail = function (contact) {
                     var link = ['ContactDetail', { id: contact.id }];
                     this._router.navigate(link);
                 };
-                ContactboardComponent = __decorate([
+                DashboardComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-contactboard',
-                        templateUrl: 'app/contactboard.component.html',
-                        styleUrls: ['app/contactboard.component.css']
+                        selector: 'my-dashboard',
+                        templateUrl: 'app/dashboard.component.html',
+                        styleUrls: ['app/dashboard.component.css']
                     }), 
-                    __metadata('design:paramtypes', [contact_service_1.ContactService, router_1.Router])
-                ], ContactboardComponent);
-                return ContactboardComponent;
+                    __metadata('design:paramtypes', [dashboard_service_1.DashboardService, contact_service_1.ContactService, router_1.Router])
+                ], DashboardComponent);
+                return DashboardComponent;
             }());
-            exports_1("ContactboardComponent", ContactboardComponent);
+            exports_1("DashboardComponent", DashboardComponent);
         }
     }
 });

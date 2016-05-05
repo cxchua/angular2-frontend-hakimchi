@@ -5,9 +5,10 @@ import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 import { HomeComponent } from './home.component';
 import { ContactService } from './contact.service';
+import { DashboardService } from './dashboard.service';
 import { ContactsComponent } from './contacts.component';
 import { DashboardComponent } from './dashboard.component';
-import { ContactDetailComponent } from './contact-detail.component';
+// import { ContactDetailComponent } from './contact-detail.component';
 
 @Component({
   selector: 'my-app',
@@ -18,7 +19,7 @@ import { ContactDetailComponent } from './contact-detail.component';
   <footer></footer>
   `,
   directives: [HeaderComponent, FooterComponent, ROUTER_DIRECTIVES],
-  providers: [ContactService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
+  providers: [ContactService, DashboardService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
 @RouteConfig([
   {
@@ -35,11 +36,11 @@ import { ContactDetailComponent } from './contact-detail.component';
   name: 'Contacts',
   component: ContactsComponent
   },
-  {
-  path: '/detail/:id',
-  name: 'ContactDetail',
-  component: ContactDetailComponent
-  },
+  // {
+  // path: '/detail/:id',
+  // name: 'ContactDetail',
+  // component: ContactDetailComponent
+  // },
 ])
 export class AppComponent {
   title = "Contact Now. Stay Connected."

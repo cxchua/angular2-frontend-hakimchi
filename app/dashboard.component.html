@@ -1,8 +1,28 @@
 <h2>Dashboard</h2>
-<div class="grid grid-pad">
-  <div *ngFor="#contact of contacts" (click)="gotoDetail(contact)" class="col-1-4">
-    <div class="module contact">
-      <h4>{{contact.contactname}}</h4>
+<div class="top-border"><p id="upcoming">Upcoming Events</p><p id="reminders">Reminders</p></div>
+<div class="main">
+    <div class="calendar-box">
+        <ul class="calendar">
+            <li *ngFor="#event of events" class="cal-entry">{{event.eventSummary}}<br />
+              <span>{{event.eventDate}}</span>
+            </li>
+        </ul>
     </div>
-  </div>
+    <div class="reminder-box">
+        <ul class="specials">
+            <li></li>
+        </ul>
+    </div>
 </div>
+<div class="bottom-border"></div>
+
+<!-- <div class="dashboard events-side">
+    <ul class="events-box events-side">
+      <li></li>
+    </ul>
+</div> -->
+<!-- <div *ngFor="#contact of contacts" (click)="gotoDetail(contact)" class="col-1-4">
+  <div class="module contact">
+    <h4>{{contact.contactname}}</h4>
+  </div>
+</div> -->
