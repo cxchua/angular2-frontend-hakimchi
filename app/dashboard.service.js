@@ -28,16 +28,20 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                 function DashboardService(http) {
                     this.http = http;
                     this.eventsUrl = "http://localhost:3000/api/events/572b51b752f11f984fddeb47";
+                    this.remindersUrl = "http://localhost:3000/api/contacts-date/572b51b752f11f984fddeb47";
                 }
                 DashboardService.prototype.getEvents = function () {
                     return this.http.get(this.eventsUrl).map(this.extractData).catch(this.handleError);
+                };
+                DashboardService.prototype.getContactDate = function () {
+                    return this.http.get(this.remindersUrl).map(this.extractData).catch(this.handleError);
                 };
                 DashboardService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {
                         throw new Error('Bad response status: ' + res.status);
                     }
                     var body = res.json();
-                    //  console.log("Body is: " + body[0]);
+                    //  console.log("Body is: " + body);
                     return body || {};
                 };
                 DashboardService.prototype.handleError = function (error) {

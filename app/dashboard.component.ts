@@ -1,8 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
-import { Contact } from './contact';
+import { ContactDate } from './contactdate';
 import { Event } from './event';
-import { ContactService } from './contact.service';
 import { DashboardService } from './dashboard.service';
 
 @Component({
@@ -13,20 +12,20 @@ import { DashboardService } from './dashboard.service';
 
 export class DashboardComponent implements OnInit {
   events: Event[] = []
-  contacts: Contact[] = [];
+  contacts: ContactDate[] = [];
   errorMessage: string;
 
-  constructor(private _dashboardService: DashboardService, private _contactService: ContactService, private _router: Router) { }
+  constructor(private _dashboardService: DashboardService, private _router: Router) { }
 
   ngOnInit() {
-    this._contactService.getContacts()
-      .subscribe(contacts => this.contacts = contacts.slice(1,5), error => this.errorMessage = <any>error);
-
     this._dashboardService.getEvents()
       .subscribe(events => this.events = events, error => this.errorMessage = <any>error);
+    this._dashboardService.getContactDate()
+      .subscribe(contacts => this.contacts = contacts, error => this.errorMessage = <any>error);
+
   }
-  gotoDetail(contact: Contact) {
-    let link = ['ContactDetail', { id: contact.id }];
+  gotoDetail(contact: ContactDate) {
+    let link = ['ContactDetail', { id: contact._id }];
     this._router.navigate(link);
   }
 }

@@ -3,15 +3,21 @@ import { Http, Response } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Event } from './event';
+import { ContactDate } from './contactdate';
 
 @Injectable()
 export class DashboardService {
   constructor (private http: Http) {}
 
   private eventsUrl = "http://localhost:3000/api/events/572b51b752f11f984fddeb47"
+  private remindersUrl = "http://localhost:3000/api/contacts-date/572b51b752f11f984fddeb47"
 
   getEvents (): Observable<Event[]> {
     return this.http.get(this.eventsUrl).map(this.extractData).catch(this.handleError);
+  }
+
+  getContactDate (): Observable<ContactDate[]> {
+    return this.http.get(this.remindersUrl).map(this.extractData).catch(this.handleError);
   }
 
   private extractData(res: Response) {
@@ -19,7 +25,7 @@ export class DashboardService {
      throw new Error('Bad response status: ' + res.status);
    }
    let body = res.json();
-  //  console.log("Body is: " + body[0]);
+  //  console.log("Body is: " + body);
    return body || { };
  }
 

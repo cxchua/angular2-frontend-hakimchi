@@ -1,19 +1,55 @@
-.container {
-  height: 85vh;
-  width: 100%;
-  background: #0288d1;
-}
-
-.profile-left {
-  
-}
-
+/*Blue band at the top. DONT TOUCH*/
 h2 {
+  background-color: #0288d1;
+  font-size: 1.5em;
+  font-weight: 300;
+  color: white;
+  height: 6vh;
+  padding: 2.5vh 0 0 1vw;
   margin: 0;
 }
 
-.profilepic {
+.top-border {
+  height: 6vh;
+  width: 100vw;
+  background: #F5F5F5;
+}
+
+.main {
+  height: 61vh;
+  width: 100vw;
+  background: white;
+  margin: 0;
+  left: 2vw;
+}
+
+.contact-info, .center, .interactions {
+  position: relative;
+  height: 63.5vh;
+  width: 33vw;
+  bottom: 2.5vh;
+  background-color: #B0C4DE;
+}
+
+.contact-info {
+  float: left;
+}
+
+
+.bottom-border {
+  height: 6vh;
+  width: 100vw;
+  background: #F5F5F5;
+}
+
+/*.container {
+  height: 85vh;
+  width: 100%;
+  background: #0288d1;
+}*/
+
+/*.profilepic {
   height: 180px;
   width: 180px;
   border-radius: 50%;
-}
+}*/

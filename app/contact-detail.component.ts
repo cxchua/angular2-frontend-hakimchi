@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
-// import { ContactService } from './contact.service';
+import { ContactService } from './contact.service';
 import { Contact } from './contact';
 
 @Component({
@@ -9,18 +9,21 @@ import { Contact } from './contact';
   styleUrls: ['app/contact-detail.component.css']
 })
 
-export class ContactDetailComponent {// implements OnInit {
+export class ContactDetailComponent implements OnInit {
   @Input() contact: Contact;
 
-  // constructor(
-  //   private _contactService: ContactService,
-  //   private _routeParams: RouteParams) {}
+  errorMessage: string;
 
-  // ngOnInit() {
-  //   let id = +this._routeParams.get('id');
-  //   this._contactService.getContact(id)
-  //     .then(contact => this.contact = contact);
-  // }
+  constructor(
+    private _contactService: ContactService,
+    private _routeParams: RouteParams) {}
+
+  ngOnInit() {
+    let id = +this._routeParams.get('id');
+    this._contactService.getContact(id).subscribe(
+        contact => this.contact = contact,
+        error => this.errorMessage = <any>error);
+  }
 
   goBack() {
     window.history.back();

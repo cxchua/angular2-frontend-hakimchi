@@ -8,11 +8,7 @@ import { Contact } from './contact';
 export class ContactService {
   constructor (private http: Http) {}
 
-  private contactsUrl = "http://localhost:3000/api/contacts/572b51b752f11f984fddeb47"
-
-  getContacts (): Observable<Contact[]> {
-    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
-  }
+  private contactsUrl = "http://localhost:3000/api/contacts-alpha/572b51b752f11f984fddeb47"
 
   private extractData(res: Response) {
    if (res.status < 200 || res.status >= 300) {
@@ -30,15 +26,19 @@ export class ContactService {
    return Observable.throw(errMsg);
  }
 
-  // getContacts() {
-  //   return Promise.resolve(CONTACTS);
-  // }
+ getContacts (): Observable<Contact[]> {
+   return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+ }
 
-//   getContact(id: number) {
-//   return Promise.resolve(CONTACTS).then(
-//     contacts => contacts.filter(contact => contact.id === id)[0]
-//   );
-// }
+ getContact(id: number): Observable<Contact> {
+ return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+ };
+
+  // getContact(id: number) {
+  // return Promise.resolve(CONTACTS).then(
+  //   contacts => contacts.filter(contact => contact._id === id)[0]
+  // );
+  //}
 
   // See the "Take it slow" appendix
   // getContactsSlowly() {

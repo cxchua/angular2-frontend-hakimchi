@@ -30,10 +30,11 @@ export class ContactsComponent implements OnInit {
   ngOnInit() {
     this.getContacts();
   }
-  onSelect(contact: Contact) { this.selectedContact = contact; };
+
+  onSelect(contact: Contact) { this.selectedContact = contact; console.log(this.selectedContact)};
 
   gotoDetail() {
-    this._router.navigate(['ContactDetail', { id: this.selectedContact.id }]);
+    this._router.navigate(['ContactDetail', { id: this.selectedContact._id }]);
   }
 
   constructor(private _contactService: ContactService, private _router: Router) { }

@@ -44,10 +44,10 @@ System.register(['angular2/core', './contact.service', './contact-detail.compone
                 ContactsComponent.prototype.ngOnInit = function () {
                     this.getContacts();
                 };
-                ContactsComponent.prototype.onSelect = function (contact) { this.selectedContact = contact; };
+                ContactsComponent.prototype.onSelect = function (contact) { this.selectedContact = contact; console.log(this.selectedContact); };
                 ;
                 ContactsComponent.prototype.gotoDetail = function () {
-                    this._router.navigate(['ContactDetail', { id: this.selectedContact.id }]);
+                    this._router.navigate(['ContactDetail', { id: this.selectedContact._id }]);
                 };
                 ContactsComponent = __decorate([
                     core_1.Component({

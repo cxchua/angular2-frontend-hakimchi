@@ -8,7 +8,7 @@ import { ContactService } from './contact.service';
 import { DashboardService } from './dashboard.service';
 import { ContactsComponent } from './contacts.component';
 import { DashboardComponent } from './dashboard.component';
-// import { ContactDetailComponent } from './contact-detail.component';
+import { ContactDetailComponent } from './contact-detail.component';
 
 @Component({
   selector: 'my-app',
@@ -36,11 +36,11 @@ import { DashboardComponent } from './dashboard.component';
   name: 'Contacts',
   component: ContactsComponent
   },
-  // {
-  // path: '/detail/:id',
-  // name: 'ContactDetail',
-  // component: ContactDetailComponent
-  // },
+  {
+  path: '/contacts/:id',
+  name: 'ContactDetail',
+  component: ContactDetailComponent
+  },
 ])
 export class AppComponent {
   title = "Contact Now. Stay Connected."

@@ -3,7 +3,7 @@
   <ul class="contacts">
     <li *ngFor="#contact of contacts"
       [class.selected]="contact === selectedContact"
-      (click)="onSelect(contact)">
+      (click)="onSelect(contact)" (click)="gotoDetail()">
       <div class="contact-name">
         <span class="badge">{{contact.contactname}}</span>
       </div>

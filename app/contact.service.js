@@ -27,11 +27,8 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
             ContactService = (function () {
                 function ContactService(http) {
                     this.http = http;
-                    this.contactsUrl = "http://localhost:3000/api/contacts/572b51b752f11f984fddeb47";
+                    this.contactsUrl = "http://localhost:3000/api/contacts-alpha/572b51b752f11f984fddeb47";
                 }
-                ContactService.prototype.getContacts = function () {
-                    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
-                };
                 ContactService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {
                         throw new Error('Bad response status: ' + res.status);
@@ -46,6 +43,13 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     console.error(errMsg); // log to console instead
                     return Observable_1.Observable.throw(errMsg);
                 };
+                ContactService.prototype.getContacts = function () {
+                    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+                };
+                ContactService.prototype.getContact = function (id) {
+                    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+                };
+                ;
                 ContactService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
