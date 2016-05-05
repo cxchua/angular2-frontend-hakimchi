@@ -23,7 +23,7 @@ import { ContactDetailComponent } from './contact-detail.component';
 })
 @RouteConfig([
   {
-    path: '/home',
+    path: '/home/*wildCardParam',
     name: 'Home',
     component: HomeComponent,
     useAsDefault: true

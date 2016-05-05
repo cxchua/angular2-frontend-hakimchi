@@ -8,7 +8,8 @@ import { Contact } from './contact';
 export class ContactService {
   constructor (private http: Http) {}
 
-  private contactsUrl = "http://localhost:3000/api/contacts-alpha/572b51b752f11f984fddeb47"
+  private userID = localStorage.getItem('userid')
+  private contactsUrl = ("http://localhost:3000/api/contacts-alpha/"+this.userID)
 
   private extractData(res: Response) {
    if (res.status < 200 || res.status >= 300) {

@@ -8,11 +8,14 @@
         <span class="badge">{{contact.contactname}}</span>
       </div>
       <div class="contact-info">
-        <div>Email: {{contact.contactEmail}}</div>
+        <div>Last Interaction: {{contact.contactLastInteraction.LatestInteractionOverall}}</div>
         <br />
-        <div>Number: {{contact.contactPhone}}</div>
+        <div>Primary Email: {{contact.contactEmail[0]}}</div>
+        <div>Secondary Email: {{contact.contactEmail[1]}}</div>
         <br />
-        <div>Additional Info:</div>
+        <div>Primary Number: {{contact.contactPhone[0]}}</div>
+        <div>Secondary Number: {{contact.contactPhone[1]}}</div>
+        <br />
       </div>
     </li>
   </ul>

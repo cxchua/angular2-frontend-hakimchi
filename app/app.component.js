@@ -62,7 +62,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './header.
                     }),
                     router_1.RouteConfig([
                         {
-                            path: '/home',
+                            path: '/home/*wildCardParam',
                             name: 'Home',
                             component: home_component_1.HomeComponent,
                             useAsDefault: true

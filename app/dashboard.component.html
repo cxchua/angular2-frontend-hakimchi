@@ -3,14 +3,20 @@
 <div class="main">
     <div class="calendar-box">
         <ul class="calendar">
-            <li *ngFor="#event of events" class="cal-entry">{{event.eventSummary}}<br />
-              <span>{{event.eventDate}}</span>
-            </li>
+            <div *ngFor="#event of events" class="cal-entry">{{event.eventSummary}}<br />
+              <span>Date: {{event.eventDate}}</span>
+              <br /><br /><br />
+            </div>
         </ul>
     </div>
     <div class="reminder-box">
         <ul class="specials">
-            <li *ngFor="#contact of contacts"></li>
+            <div *ngFor="#contact of contacts">{{contact.contactname}}<br /><br />
+              <span>Last Interaction: {{contact.contactLastInteraction.LatestInteractionOverall}}</span><br />
+              <span>Primary Phone: {{contact.contactPhone[0]}}</span> <br />
+              <span>Primary Email: {{contact.contactEmail[0]}}</span>
+              <br /><br /><br />
+            </div>
         </ul>
     </div>
 </div>

@@ -27,7 +27,8 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
             ContactService = (function () {
                 function ContactService(http) {
                     this.http = http;
-                    this.contactsUrl = "http://localhost:3000/api/contacts-alpha/572b51b752f11f984fddeb47";
+                    this.userID = localStorage.getItem('userid');
+                    this.contactsUrl = ("http://localhost:3000/api/contacts-alpha/" + this.userID);
                 }
                 ContactService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {

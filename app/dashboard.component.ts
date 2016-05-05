@@ -2,6 +2,7 @@ import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { ContactDate } from './contactdate';
 import { Event } from './event';
+import { Userid } from './userid';
 import { DashboardService } from './dashboard.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { DashboardService } from './dashboard.service';
 export class DashboardComponent implements OnInit {
   events: Event[] = []
   contacts: ContactDate[] = [];
+  userid : 'String';
   errorMessage: string;
 
   constructor(private _dashboardService: DashboardService, private _router: Router) { }
@@ -22,6 +24,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(events => this.events = events, error => this.errorMessage = <any>error);
     this._dashboardService.getContactDate()
       .subscribe(contacts => this.contacts = contacts, error => this.errorMessage = <any>error);
+
 
   }
   gotoDetail(contact: ContactDate) {

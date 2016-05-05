@@ -21,6 +21,11 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             HomeComponent = (function () {
                 function HomeComponent() {
                 }
+                HomeComponent.prototype.ngOnInit = function () {
+                    var urlString = window.location.href;
+                    var token = urlString.substring(urlString.lastIndexOf("=") + 1, urlString.lastIndexOf("&"));
+                    localStorage.setItem("userid", token);
+                };
                 HomeComponent = __decorate([
                     core_1.Component({
                         selector: 'home',

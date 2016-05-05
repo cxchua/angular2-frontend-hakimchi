@@ -5,14 +5,19 @@ import { Observable } from 'rxjs/Observable';
 import { Event } from './event';
 import { ContactDate } from './contactdate';
 
+
+
 @Injectable()
 export class DashboardService {
   constructor (private http: Http) {}
 
-  private eventsUrl = "http://localhost:3000/api/events/572b51b752f11f984fddeb47"
-  private remindersUrl = "http://localhost:3000/api/contacts-date/572b51b752f11f984fddeb47"
+  private userID = localStorage.getItem('userid')
+  private eventsUrl = ("http://localhost:3000/api/events/"+this.userID)
+  private remindersUrl = ("http://localhost:3000/api/contacts-date/"+this.userID)
+  // private thirdUrl = "http://localhost:3000/api/contacts-date/572bb6ce07c1be4849e38552"
 
   getEvents (): Observable<Event[]> {
+
     return this.http.get(this.eventsUrl).map(this.extractData).catch(this.handleError);
   }
 

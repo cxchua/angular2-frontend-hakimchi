@@ -24,6 +24,9 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             HeaderComponent = (function () {
                 function HeaderComponent() {
                 }
+                HeaderComponent.prototype.logIn = function () {
+                    window.open('http://localhost:3000/auth/google');
+                };
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'header',

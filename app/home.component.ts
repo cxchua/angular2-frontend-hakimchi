@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 
 @Component({
     selector: 'home',
@@ -6,6 +6,12 @@ import { Component } from 'angular2/core';
     styleUrls: ['app/home.component.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  ngOnInit() {
+    var urlString = window.location.href;
+    var token = urlString.substring(urlString.lastIndexOf("=")+1,urlString.lastIndexOf("&"))
+    localStorage.setItem("userid", token);
+  }
+
 
 }

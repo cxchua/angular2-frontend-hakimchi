@@ -10,4 +10,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 
 export class HeaderComponent {
 
+  logIn() {
+    window.open('http://localhost:3000/auth/google');
+  }
+
 }
