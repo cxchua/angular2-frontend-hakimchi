@@ -24,7 +24,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 FooterComponent = __decorate([
                     core_1.Component({
                         selector: 'footer',
-                        template: "\n    <div>\n      <h1 class=\"logo\">ContactNow \u00A9</h1>\n    </div>\n    ",
+                        template: "\n    <div>\n      <h1 class=\"logo\">Hakimchii \u00A9</h1>\n    </div>\n    ",
                         styleUrls: ['app/footer.component.css']
                     }), 
                     __metadata('design:paramtypes', [])

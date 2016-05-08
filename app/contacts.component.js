@@ -47,7 +47,10 @@ System.register(['angular2/core', './contact.service', './contact-detail.compone
                 ContactsComponent.prototype.onSelect = function (contact) { this.selectedContact = contact; console.log(this.selectedContact); };
                 ;
                 ContactsComponent.prototype.gotoDetail = function () {
-                    this._router.navigate(['ContactDetail', { id: this.selectedContact._id }]);
+                    console.log(this.selectedContact._id);
+                    var userid = localStorage.getItem("userid");
+                    window.open('http://localhost:3000/api/getcontactdetails/' + userid + '/' + this.selectedContact._id);
+                    // this._router.navigate(['ContactDetail', { id: this.selectedContact._id }]);
                 };
                 ContactsComponent = __decorate([
                     core_1.Component({

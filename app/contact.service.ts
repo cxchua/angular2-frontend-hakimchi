@@ -10,6 +10,7 @@ export class ContactService {
 
   private userID = localStorage.getItem('userid')
   private contactsUrl = ("http://localhost:3000/api/contacts-alpha/"+this.userID)
+  private detailUrl = ("http://localhost:3000/api/getcontactdetails/"+this.userID+"/")
 
   private extractData(res: Response) {
    if (res.status < 200 || res.status >= 300) {
@@ -32,7 +33,8 @@ export class ContactService {
  }
 
  getContact(id: number): Observable<Contact> {
- return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+  //  console.log()
+ return this.http.get(this.detailUrl+id).map(this.extractData).catch(this.handleError);
  };
 
   // getContact(id: number) {

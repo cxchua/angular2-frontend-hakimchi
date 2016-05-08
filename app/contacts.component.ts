@@ -34,7 +34,11 @@ export class ContactsComponent implements OnInit {
   onSelect(contact: Contact) { this.selectedContact = contact; console.log(this.selectedContact)};
 
   gotoDetail() {
-    this._router.navigate(['ContactDetail', { id: this.selectedContact._id }]);
+    console.log(this.selectedContact._id)
+    var userid = localStorage.getItem("userid")
+    window.open('http://localhost:3000/api/getcontactdetails/' + userid + '/' + this.selectedContact._id)
+    // this._router.navigate(['ContactDetail', { id: this.selectedContact._id }]);
+
   }
 
   constructor(private _contactService: ContactService, private _router: Router) { }

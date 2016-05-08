@@ -35,6 +35,7 @@ System.register(['angular2/core', 'angular2/router', './contact.service', './con
                 ContactDetailComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var id = +this._routeParams.get('id');
+                    console.log(id);
                     this._contactService.getContact(id).subscribe(function (contact) { return _this.contact = contact; }, function (error) { return _this.errorMessage = error; });
                 };
                 ContactDetailComponent.prototype.goBack = function () {

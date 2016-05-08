@@ -20,6 +20,7 @@ export class ContactDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = +this._routeParams.get('id');
+    console.log(id)
     this._contactService.getContact(id).subscribe(
         contact => this.contact = contact,
         error => this.errorMessage = <any>error);

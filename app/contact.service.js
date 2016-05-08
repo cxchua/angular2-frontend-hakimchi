@@ -29,6 +29,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     this.http = http;
                     this.userID = localStorage.getItem('userid');
                     this.contactsUrl = ("http://localhost:3000/api/contacts-alpha/" + this.userID);
+                    this.detailUrl = ("http://localhost:3000/api/getcontactdetails/" + this.userID + "/");
                 }
                 ContactService.prototype.extractData = function (res) {
                     if (res.status < 200 || res.status >= 300) {
@@ -48,7 +49,8 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
                 };
                 ContactService.prototype.getContact = function (id) {
-                    return this.http.get(this.contactsUrl).map(this.extractData).catch(this.handleError);
+                    //  console.log()
+                    return this.http.get(this.detailUrl + id).map(this.extractData).catch(this.handleError);
                 };
                 ;
                 ContactService = __decorate([
